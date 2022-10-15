@@ -31,7 +31,7 @@ async def test(message:types.Message):
 
     btn = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Musiqasini yuklap olish", url ='{}'.
+            [InlineKeyboardButton(text="Musiqasini yuklab olish", url ='{}'.
             format(music))]
         ]
     )
@@ -45,7 +45,7 @@ async def test(message:types.Message):
 
     btn = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Musiqasini yuklap olish", url ='{}'.
+            [InlineKeyboardButton(text="Musiqasini yuklab olish", url ='{}'.
             format(music))]
         ]
     )
