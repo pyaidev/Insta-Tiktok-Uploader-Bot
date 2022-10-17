@@ -17,7 +17,7 @@ async def send_media(message:types.Message):
             await message.answer_photo(photo=data['media'])
             await message.answer("Kanalga obuna bo'ling @the_best_python")
         elif data['type'] == 'video':
-            await message.answer_video(video=data['media'])
+            await message.answer_video(video=data['media'], caption="dgrhb")
             await message.answer("Kanalga obuna bo'ling @the_best_python")
         elif data['type'] == 'carousel':
             for i in data['media']:
