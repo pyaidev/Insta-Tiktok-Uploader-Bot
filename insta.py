@@ -5,7 +5,7 @@ import json
 def instadownloader(link):
     url = "https://instagram-downloader-download-instagram-videos-stories.p.rapidapi.com/index"
 
-    querystring = {"url":"https://www.instagram.com/p/CbXzHzEFv5q/"}
+    querystring = {"url":"link"}
 
     headers = {
       "X-RapidAPI-Key": "2507542715msh65a0a76b179a083p15606fjsn211bd5cbad0e",
