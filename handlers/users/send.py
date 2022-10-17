@@ -35,7 +35,7 @@ async def test(message:types.Message):
             format(music))]
         ]
     )
-    await message.answer_audio(natija['video'], reply_markup=btn)
+    await message.answer_video(natija['video'], reply_markup=btn, caption="Yuklandi -> @saveinstikbot")
     await message.answer("Kanalga obuna bo'ling @the_best_python")
 
 
@@ -51,4 +51,4 @@ async def test(message:types.Message):
         ]
     )
     await message.answer_audio(natija['video'], reply_markup=btn)
-    await message.answer("Kanalga obuna bo'ling @the_best_python")
+
