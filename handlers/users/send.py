@@ -14,12 +14,12 @@ async def send_media(message:types.Message):
         await message.answer("Kanalga obuna bo'ling @the_best_python")
     else:
         if data['type'] == 'image':
-            await message.answer_photo(photo=data['media'], caption="Yuklandi -> @saveinstikbot")
+            await message.answer_photo(photo=data['media'])
         elif data['type'] == 'video':
-            await message.answer_video(video=data['media'], caption="Yuklandi -> @saveinstikbot")
+            await message.answer_video(video=data['media'])
         elif data['type'] == 'carousel':
             for i in data['media']:
-                await message.answer_document(document=i, caption="Yuklandi -> @saveinstikbot")
+                await message.answer_document(document=i)
         else:
             await message.answer("Kanalga obuna bo'ling @the_best_python")
 
@@ -36,7 +36,6 @@ async def test(message:types.Message):
         ]
     )
     await message.answer_video(natija['video'], reply_markup=btn, caption="Yuklandi -> @saveinstikbot")
-    await message.answer("Kanalga obuna bo'ling @the_best_python")
 
 
 @dp.message_handler(Text(startswith='https://www.tiktok.com/'))
