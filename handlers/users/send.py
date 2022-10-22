@@ -8,6 +8,7 @@ from tiktok import tiktok
 
 @dp.message_handler(Text(startswith='https://www.instagram.com/'))
 async def send_media(message:types.Message):
+    await message.answer("Please wait... ⏳")
     link = message.text
     data = instadownloader(link=link)
     if data == "error":
