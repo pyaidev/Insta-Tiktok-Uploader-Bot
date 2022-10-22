@@ -24,7 +24,10 @@ async def send_media(message:types.Message):
             await wait.delete()
         elif data['type'] =='carousel':
             for i in data['media']:
+                wait = await message.answer("Please wait... ⏳")
                 await message.answer_document(document=i)
+                await wait.delete()
+                
         else:
             await message.answer("Bu link orqali xechnima topilmadi")
 
@@ -56,5 +59,7 @@ async def test(message:types.Message):
             format(music))]
         ]
     )
+    wait = await message.answer("Please wait... ⏳")
     await message.answer_audio(natija['video'], reply_markup=btn)
+    await wait.delete()
 
