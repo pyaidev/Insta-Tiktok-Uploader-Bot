@@ -8,11 +8,12 @@ from tiktok import tiktok
 
 @dp.message_handler(Text(startswith='https://www.instagram.com/'))
 async def send_media(message:types.Message):
-    await message.answer("Please wait... ⏳")
     link = message.text
     data = instadownloader(link=link)
+    await message.answer("Please wait... ⏳")
     if data == "error":
         await message.answer("Bu link orqali xechnima topilmadi")
+        
     else:
         if data['type'] =='image':
             await message.answer_photo(photo=data['media'])
