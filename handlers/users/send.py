@@ -10,18 +10,18 @@ from tiktok import tiktok
 async def send_media(message:types.Message):
     link = message.text
     data = instadownloader(link=link)
-    if data == "Error":
-        await message.answer("Kanalga obuna bo'ling @the_best_python")
+    if data == "error":
+        await message.answer("Bu link orqali xechnima topilmadi")
     else:
-        if data['type'] == 'image':
+        if data['type'] =='image':
             await message.answer_photo(photo=data['media'])
-        elif data['type'] == 'video':
-            await message.answer_video(video=data['media'])
-        elif data['type'] == 'carousel':
+        elif data['type'] =='video':
+            await message.answer_video(video=data['media'], caption="Yuklandi --> @saveinstikbot")
+        elif data['type'] =='carousel':
             for i in data['media']:
                 await message.answer_document(document=i)
         else:
-            await message.answer("Kanalga obuna bo'ling @the_best_python")
+            await message.answer("Bu link orqali xechnima topilmadi")
 
 
 @dp.message_handler(Text(startswith='https://vt.tiktok.com/'))
