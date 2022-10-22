@@ -10,7 +10,6 @@ from tiktok import tiktok
 async def send_media(message:types.Message):
     link = message.text
     data = instadownloader(link=link)
-    await message.answer("Please wait... ⏳")
     if data == "error":
         await message.answer("Bu link orqali xechnima topilmadi")
         
