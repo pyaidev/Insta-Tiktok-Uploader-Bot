@@ -9,6 +9,6 @@ bot = Bot(BOT_TOKEN)
 async def bot_start(message: types.Message):
     user_id = message.from_user.id
     await bot.send_sticker(user_id, sticker='CAACAgIAAxkBAAEEeItiWG7TWqCapeRnGLmb0JhzlfO6UwACAQEAAladvQoivp8OuMLmNCME')
-    await message.answer(f"Salom, {message.from_user.full_name}!\n"
-                         f"Havolani yuboring!")
+    await message.answer(f"Hello, {message.from_user.full_name}!\n"
+                         f"Send a link!")
 
