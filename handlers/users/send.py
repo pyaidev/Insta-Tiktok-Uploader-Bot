@@ -14,13 +14,13 @@ async def send_media(message:types.Message):
     data = instadownloader(link=link)
 
     if data == "error":
-        await message.answer("Bu link orqali xechnima topilmadi")
+        await message.answer("Nothing was found through this link")
     else:
         if data['type'] =='image':
             await message.answer_photo(photo=data['media'])
         elif data['type'] =='video':
             wait = await message.answer("Please wait... ⏳")
-            await message.answer_video(video=data['media'], caption="Yuklandi --> @saveinstikbot")
+            await message.answer_video(video=data['media'], caption="Saved --> @saveinstikbot")
             await wait.delete()
         elif data['type'] =='carousel':
             for i in data['media']:
@@ -29,7 +29,7 @@ async def send_media(message:types.Message):
                 await wait.delete()
                 
         else:
-            await message.answer("Bu link orqali xechnima topilmadi")
+            await message.answer("Nothing was found through this link")
 
 
 
@@ -41,11 +41,11 @@ async def test(message:types.Message):
 
     btn = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Musiqasini yuklap olish", url ='{}'.
+            [InlineKeyboardButton(text="Download music", url ='{}'.
             format(music))]
         ]
     )
-    await message.answer_video(natija['video'], reply_markup=btn, caption="Yuklandi -> @saveinstikbot")
+    await message.answer_video(natija['video'], reply_markup=btn, caption="Saved -> @saveinstikbot")
 
 
 @dp.message_handler(Text(startswith='https://www.tiktok.com/'))
@@ -55,7 +55,7 @@ async def test(message:types.Message):
 
     btn = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Musiqasini yuklap olish", url ='{}'.
+            [InlineKeyboardButton(text="Download music", url ='{}'.
             format(music))]
         ]
     )
