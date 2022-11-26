@@ -20,7 +20,7 @@ async def send_media(message:types.Message):
             await message.answer_photo(photo=data['media'])
         elif data['type'] =='video':
             wait = await message.answer("Please wait... ⏳")
-            await message.answer_video(video=data['media'], caption="Saved --> @saveinstikbot \nChanel @the_best_python")
+            await message.answer_video(video=data['media'], caption="Saved @saveinstikbot \nChanel @the_best_python")
             await wait.delete()
         elif data['type'] =='carousel':
             for i in data['media']:
