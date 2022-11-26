@@ -14,13 +14,13 @@ async def send_media(message:types.Message):
     data = instadownloader(link=link)
 
     if data == "error":
-        await message.answer("Nothing was found through this link")
+        await message.answer("Nothing was found through this link. Chanel @the_best_python")
     else:
         if data['type'] =='image':
             await message.answer_photo(photo=data['media'])
         elif data['type'] =='video':
             wait = await message.answer("Please wait... ⏳")
-            await message.answer_video(video=data['media'], caption="Saved --> @saveinstikbot \n Chanel @the_best_python")
+            await message.answer_video(video=data['media'], caption="Saved --> @saveinstikbot \nChanel @the_best_python")
             await wait.delete()
         elif data['type'] =='carousel':
             for i in data['media']:
@@ -29,7 +29,7 @@ async def send_media(message:types.Message):
                 await wait.delete()
                 
         else:
-            await message.answer("Nothing was found through this link")
+            await message.answer("Nothing was found through this link. Chanel @the_best_python")
 
 
 
