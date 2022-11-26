@@ -7,9 +7,8 @@ def instadownloader(link):
     querystring = {"url": link}
 
     headers = {
-	"content-type": "application/x-www-form-urlencoded",
-	"X-RapidAPI-Key": "2507542715msh65a0a76b179a083p15606fjsn211bd5cbad0e",
-	"X-RapidAPI-Host": "instagram-video-or-images-downloader.p.rapidapi.com"
+	"X-RapidAPI-Key": "48d1fa43f7mshc9f7adc3f18df95p12bedajsn819039a2d0a2",
+	"X-RapidAPI-Host": "instagram-downloader-download-instagram-videos-stories.p.rapidapi.com"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
