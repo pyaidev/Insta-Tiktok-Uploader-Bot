@@ -13,9 +13,16 @@ language_choices = {
     'uz': 'Oʻzbekcha 🇺🇿',
     'en': 'English 🇺🇸',
 }
+usernames_file = 'usernames.txt'
+
+
+def save_user_full_name(full_name):
+    with open(usernames_file, 'a', encoding='utf-8') as file:
+        file.write(f'{full_name}\n')
 
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
+    save_user_full_name(message.from_user.full_name)
     # Display language selection buttons
     keyboard = types.InlineKeyboardMarkup()
     for code, lang in language_choices.items():
@@ -49,4 +56,5 @@ async def set_language(call: types.CallbackQuery):
 
     # Send the message
     await bot.send_message(user_id, start_message)
+
 
