@@ -1,4 +1,5 @@
 from aiogram import types, Bot
+import json
 from aiogram.dispatcher.filters.builtin import CommandStart, Command
 
 from data.config import BOT_TOKEN
@@ -49,6 +50,3 @@ async def set_language(call: types.CallbackQuery):
     # Send the message
     await bot.send_message(user_id, start_message)
 
-if __name__ == "__main__":
-    from aiogram import executor
-    executor.start_polling(dp, skip_updates=True)
