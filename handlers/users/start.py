@@ -20,7 +20,9 @@ async def bot_start(message: types.Message):
     keyboard = types.InlineKeyboardMarkup()
     for code, lang in language_choices.items():
         keyboard.add(types.InlineKeyboardButton(text=lang, callback_data=f'set_lang_{code}'))
-    await message.answer("Please select your preferred language:", reply_markup=keyboard)
+    await message.answer("💬 Пожалуйста, выберите язык интерфейса для использования бота: \n"
+                                💬 Iltimos, botdan foydalanish uchun interfeys tilini tanlang: \n
+                                💬 Please select the interface language to use the bot:", reply_markup=keyboard)
 
 @dp.callback_query_handler(lambda c: c.data.startswith('set_lang_'))
 async def set_language(call: types.CallbackQuery):
