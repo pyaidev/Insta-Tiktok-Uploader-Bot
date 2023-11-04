@@ -9,9 +9,9 @@ bot = Bot(BOT_TOKEN)
 
 # Dictionary to map language codes to human-readable language names
 language_choices = {
-    'ru': 'Русский',
-    'uz': 'Oʻzbekcha',
-    'en': 'English',
+    'ru': 'Русский 🇷🇺',
+    'uz': 'Oʻzbekcha 🇺🇿',
+    'en': 'English 🇺🇸',
 }
 
 @dp.message_handler(CommandStart())
