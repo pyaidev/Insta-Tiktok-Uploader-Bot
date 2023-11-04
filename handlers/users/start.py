@@ -20,15 +20,25 @@ def save_user_full_name(full_name):
     with open(usernames_file, 'a', encoding='utf-8') as file:
         file.write(f'{full_name}\n')
 
+def is_full_name_saved(full_name):
+    # Check if the full name is already in the file
+    with open(usernames_file, 'r', encoding='utf-8') as file:
+        for line in file:
+            if line.strip() == full_name:
+                return True
+    return False
+
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
-    save_user_full_name(message.from_user.full_name)
+    full_name = message.from_user.full_name
+    if not is_full_name_saved(full_name):
+        # Save the user's full name to the text file
+        save_user_full_name(full_name)
     # Display language selection buttons
     keyboard = types.InlineKeyboardMarkup()
     for code, lang in language_choices.items():
         keyboard.add(types.InlineKeyboardButton(text=lang, callback_data=f'set_lang_{code}'))
     await message.answer("💬 Пожалуйста, выберите язык интерфейса для использования бота: \n💬 Iltimos, botdan foydalanish uchun interfeys tilini tanlang: \n💬 Please select the interface language to use the bot:", reply_markup=keyboard)
-
 @dp.callback_query_handler(lambda c: c.data.startswith('set_lang_'))
 async def set_language(call: types.CallbackQuery):
     # Extract the selected language code
@@ -56,5 +66,9 @@ async def set_language(call: types.CallbackQuery):
 
     # Send the message
     await bot.send_message(user_id, start_message)
+
+    # Remove the language selection message
+    await call.message.delete()
+
 
 
