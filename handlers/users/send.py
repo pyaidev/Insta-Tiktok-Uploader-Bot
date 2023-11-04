@@ -63,3 +63,10 @@ async def test(message:types.Message):
     await message.answer_audio(natija['video'], reply_markup=btn)
     await wait.delete()
 
+
+@dp.message_handler()
+async def handle_non_url_messages(message: types.Message):
+    # This handler will handle all messages that don't match the previous handlers
+
+    # You can respond with a message to inform the user that the message format is not supported
+    await message.answer("Sorry, this type of message is not supported. Please provide a valid Instagram or TikTok URL.")
